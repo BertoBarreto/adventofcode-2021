@@ -1,4 +1,4 @@
-with open("puzzle_1_input.txt", "r") as fh:
+with open("input.txt", "r") as fh:
     contents = fh.read()
 
 mesurements = contents.split('\n')

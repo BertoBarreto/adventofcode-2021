@@ -3,20 +3,13 @@ with open("input.txt", "r") as fh:
 
 mesurements = contents.split('\n')
 counter = 0
-cont2 = 0
-ms = {}
+lastSum = 0
 
 for i in range(0, len(mesurements)):
-    for y in range(i, i+3):
-        if y < len(mesurements):
-            ms[cont2] = int(mesurements[y]) + ms.get(cont2, 0)
-
-    cont2 += 1
-
-counter = 0
-
-for i in range(1, len(ms.items())):
-    if ms[i] > ms[i - 1]:
-        counter += 1
+    if i+1 < len(mesurements) and i+2 < len(mesurements):
+        currSum = int(mesurements[i]) + int(mesurements[i+1]) + int(mesurements[i+2])
+        if currSum > lastSum and i > 0:
+            counter += 1
+        lastSum = currSum
 
 print(counter)
