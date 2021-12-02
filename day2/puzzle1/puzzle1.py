@@ -1,16 +1,16 @@
-def add_horizontal(value):
+def forward_horizontal(value):
     position['horizontal'] = position.get('horizontal', 0) + value
 
-def add_vertical(value):
+def down_vertical(value):
     position['vertical'] = position.get('vertical', 0) + value
 
-def rmv_vertical(value):
+def up_vertical(value):
     position['vertical'] = position.get('vertical', 0) - value
 
 possibleMoves = {
-                'forward': add_horizontal,
-                'down':add_vertical,
-                'up':rmv_vertical,
+                'forward': forward_horizontal,
+                'down':down_vertical,
+                'up':up_vertical,
                  }
 
 def switch_moves(move, value):
@@ -28,10 +28,10 @@ with open("input.txt", "r") as fh:
 
 moves = contents.split('\n')
 
-for move in moves:
-    value = int(move.split(' ')[1])
-    move = move.split(' ')[0]
-    switch_moves(move,value)
+for movement in moves:
+    amount = int(movement.split(' ')[1])
+    movemnet = movement.split(' ')[0]
+    switch_moves(movement, amount)
 
 response = position['horizontal'] * position['vertical']
 print(response)
