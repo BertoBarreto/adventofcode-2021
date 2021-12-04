@@ -16,8 +16,8 @@ def down_vertical(value):
 
 
 possibleMoves = {'forward': forward_horizontal,
-                'down': down_vertical,
-                'up': up_vertical}
+                 'down': down_vertical,
+                 'up': up_vertical}
 
 
 def switch_moves(move, value):
